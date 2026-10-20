@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng 20/10 - Phụ Nữ Việt Nam ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            color: #fff;
+            text-align: center;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 90%;
+            width: 450px;
+            z-index: 10;
+        }
+        h1 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #f9f9f9;
+        }
+        .btn {
+            background: #fff;
+            color: #ff477e;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .btn:hover {
+            background: #ff477e;
+            color: #fff;
+            transform: scale(1.05);
+        }
+        /* Hiệu ứng hoa rơi */
+        .flower {
+            position: absolute;
+            top: -10vh;
+            font-size: 24px;
+            animation: fall linear forwards;
+            z-index: 1;
+            user-select: none;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        🌸 Chúc Mừng 20/10 🌸
+        <h1>Gửi những người phụ nữ tuyệt vời!</h1>
+        <p>Chúc một nửa thế giới luôn rạng rỡ, xinh đẹp, luôn nở nụ cười trên môi và gặp thật nhiều may mắn, hạnh phúc trong cuộc sống nhé! ✨</p>
+        <button class="btn" onclick="createFlowers()">Nhận Lời Chúc 🌷</button>
+    </div>
+
+    <script>
+        const flowerEmojis = ['🌸', '🌹', '🌷', '🌺', '🌻', '💐', '💖'];
+
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.innerHTML = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
+            
+            flower.style.left = Math.random() * 100 + 'vw';
+            flower.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            flower.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            
+            document.body.appendChild(flower);
+
+            setTimeout(() => {
+                flower.remove();
+            }, 5000);
+        }
+
+        function createFlowers() {
+            // Tạo một trận mưa hoa khi bấm nút
+            for (let i = 0; i < 40; i++) {
+                setTimeout(createFlower, i * 80);
+            }
+        }
+    </script>
+</body>
+</html>
